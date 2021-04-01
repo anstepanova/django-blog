@@ -7,17 +7,7 @@
 {% block content %}
     <form class="mb-3" action="{% url 'tag_create_url' %}" method="post">
         {% csrf_token %}
-        {% for field in form %}
-            <div class="form-group">
-                {% if field.errors %}
-                    <div class="alert alert-danger">
-                        {{ field.errors }}
-                    </div>
-                {% endif %}
-                {{ field.label }}
-                {{ field }}
-            </div>
-        {% endfor %}
+        {{ form.as_p }}
         <button type="submit" class="btn btn-dark mt-1">Create Tag</button>
     </form>
 {% endblock %}
